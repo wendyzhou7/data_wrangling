@@ -3,3 +3,30 @@ title: "Simple document"
 output: github_document
 ---
 
+```{r}
+library(tidyverse)
+```
+
+Import "FAS_litters.csv" using relative path
+```{r}
+litters_df = 
+  read_csv("data/FAS_litters.csv")
+
+litters_df
+
+#turns variable names into snackcase
+litters_df = 
+  janitor::clean_names(litters_df)
+```
+
+Import "FAS_litters.csv" using absolute path
+```{r}
+litters_df_abs = 
+  read_csv("~/Users/wendyzhou/Desktop/R/P8105/Lecture/data_wrangling/data")
+
+#turns variable names into snackcase
+litters_df = 
+  janitor::clean_names(litters_df_abs)
+```
+
+
