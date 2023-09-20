@@ -74,4 +74,32 @@ litters_df = read_csv("data/FAS_litters.csv",
 ```
 
 
+## Other file types
+
+Import excel file:
+```{r}
+library(tidyverse)
+library(readxl)
+```
+
+```{r}
+mlb_df = read_excel("data/mlb11.xlsx")
+```
+
+Import SAS file
+```{r}
+library(haven)
+```
+
+```{r}
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+```
+
+
+
+
+
+
+
+
 
