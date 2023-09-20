@@ -9,24 +9,69 @@ library(tidyverse)
 
 Import "FAS_litters.csv" using relative path
 ```{r}
-litters_df = 
-  read_csv("data/FAS_litters.csv")
+litters_df = read_csv("./data/FAS_litters.csv")
 
 litters_df
 
 #turns variable names into snackcase
-litters_df = 
-  janitor::clean_names(litters_df)
+litters_df = janitor::clean_names(litters_df)
 ```
 
 Import "FAS_litters.csv" using absolute path
 ```{r}
-litters_df_abs = 
-  read_csv("~/Users/wendyzhou/Desktop/R/P8105/Lecture/data_wrangling/data")
+#litters_df_abs = read_csv("~/Users/wendyzhou/Desktop/R/P8105/Lecture/data_wrangling/data")
 
 #turns variable names into snackcase
-litters_df = 
-  janitor::clean_names(litters_df_abs)
+#litters_df = janitor::clean_names(litters_df_abs)
 ```
+
+Import "FAS_pups.csv" file
+```{r}
+pups_df = read_csv("data/FAS_pups.csv")
+
+pups_df = janitor::clean_names(pups_df)
+
+# Look at data
+pups_df
+
+head(pups_df)
+
+tail(pups_df)
+
+```
+
+# View entire dataset
+```{r, eval = FALSE}
+view(pups_df)
+```
+
+# Look at a data summary
+```{r}
+str(pups_df)
+
+skimr::skim(pups_df)
+```
+
+## options in read_*
+```{r}
+litters_df = read_csv("data/FAS_litters.csv",
+                      skip = 10,
+                      col_names = FALSE)
+```
+
+
+Look at NA values:
+```{r}
+litters_df = read_csv("data/FAS_litters.csv",
+                      na = c("NA")) #anytime it sees 19, it will treat it as missing value
+```
+
+Column Types:
+```{r}
+litters_df = read_csv("data/FAS_litters.csv",
+                      col_types = cols(`GD0 weight`= col_character()))
+#read GD0 weight as a chr rather tham numerical
+```
+
 
 
