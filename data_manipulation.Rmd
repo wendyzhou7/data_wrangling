@@ -56,8 +56,20 @@ select(litters_df, group)
 pull(litters_df, group)
 ```
 
+## `filter`
 
+get rid of rows using filter function
 ```{r}
+filter(litters_df, group == "Con7")
+filter(litters_df, group == "Mod8")
+
+filter(litters_df, group != "Mod8")
+
+filter(litters_df, gd0_weight > 20)
+
+filter(litters_df, group == "Con7" | group == "Con8")
+
+filter(litters_df, group %in% c("Con7", "Con8"))
 
 ```
 
