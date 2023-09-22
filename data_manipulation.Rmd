@@ -8,3 +8,57 @@ date: "2023-09-22"
 library(tidyverse)
 ```
 
+Import "FAS_litters.csv" using relative path
+```{r}
+litters_df = read_csv("./data/FAS_litters.csv")
+
+#turns variable names into snackcase
+litters_df = janitor::clean_names(litters_df)
+```
+
+Import pups dataset
+```{r}
+pups_df = read_csv("./data/FAS_pups.csv")
+
+#turns variable names into snackcase
+pups_df = janitor::clean_names(pups_df)
+```
+
+
+#to extract only some columns that we need: 'select' fucntion
+```{r}
+select(litters_df, group, litter_number, gd0_weight)
+
+select(litters_df, group, gd0_weight:gd_of_birth)
+
+select(litters_df, group, starts_with("pups"))
+
+#removes litter_number and keeps everything else
+select(litters_df, -litter_number)
+
+select(litters_df, group, -starts_with("gd"))
+
+#rename
+select(litters_df, litter_id = litter_number)
+
+#rename and keep everything else
+select(litters_df, litter_id = litter_number, everything())
+
+relocate(litters_df, litter_number)
+```
+
+`select` vs. `pull`
+```{r}
+#extracting
+select(litters_df, group)
+
+#acts like a vector, has tidyverse logic
+pull(litters_df, group)
+```
+
+
+```{r}
+
+```
+
+
