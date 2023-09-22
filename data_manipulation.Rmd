@@ -89,4 +89,12 @@ mutate(litters_df, wt_gain = gd18_weight - gd0_weight)
 mutate(litters_df, group = str_to_lower(group))
 ```
 
+## `arrange`
+```{r}
+arrange(litters_df, group, gd0_weight)
+#arranges group in order first, and then orders gd0_weight
+
+
+```
+
 
